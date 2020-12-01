@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkerboard 🏁</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/myStyle.css') }}"
+    />
+    <style>
+      .color1 {
+        /* background-color: blue; */
+        background-color: rgb(85, 107, 47);
+      }
+      .color2 {
+        /* background-color: red; */
+        background-color: rgb(255, 255, 224);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Checkerboard 🏁</h1>
+        <p>x: {{ x }}, y: {{ y }}</p>
+      </header>
+      <main>
+        <!-- <table>
+          {% for i in range(0, y): %}
+          <tr>
+            {% for j in range(0, x): %} {% if j%2==0: %}
+            <td style="background-color: {{ color1 }}"></td>
+            {% else: %}
+            <td style="background-color: {{ color2 }}"></td>
+            {% endif %} {% endfor %}
+          </tr>
+          {% endfor %}
+        </table> -->
+
+        <!-- alt table-->
+        <!-- <table>
+          {% for i in range(6): %}
+          <tr>
+            {% for j in range(3): %}
+            <td class="color1"></td>
+            <td class="color2"></td>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for j in range(3): %}
+            <td class="color2"></td>
+            <td class="color1"></td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table> -->
+
+        <!-- refactor -->
+        <h2>refactor</h2>
+        <table>
+          {% for i in range(y): %}
+          <tr>
+            {% for j in range(x): %}
+            <td class="color{{ (i+j)%2+1 }}"></td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </main>
+    </div>
+  </body>
+</html>
